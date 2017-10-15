@@ -1,9 +1,11 @@
-//requre express
+//require express
 const express = require('express');
-//requre handlebars templating engine
+//require handlebars templating engine
 const hbs = require('hbs');
 //require fs
 const fs = require('fs');
+//env is an object that stores environment variables as key value pairs (this is for heroku configuration)
+const port = process.env.PORT || 3000;
 
 var app = express();
 
@@ -59,6 +61,6 @@ app.get('/bad', (req, res) => {
 })
 
 //server port
-app.listen(3000, () => {
-  console.log('Server is up on port 3000');
+app.listen(port, () => {
+  console.log(`Server is up on port ${port}`);
 });
